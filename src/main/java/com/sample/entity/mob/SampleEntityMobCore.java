@@ -1,29 +1,23 @@
 package com.sample.entity.mob;
 
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.world.biome.BiomeGenBase;
-
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.world.biome.BiomeGenBase;
 
-@Mod(
-	modid   = "EntityMob",
-	name    = "EntityMob",
-	version = "0.0.0")
-@NetworkMod(
-	clientSideRequired = true,
-	serverSideRequired = false)
-public class SampleEntityMobCore {
+@Mod(modid   = SampleEntityMobCore.MODID, version = SampleEntityMobCore.VERSION)
+public class SampleEntityMobCore
+{
+	public static final String MODID = "EntityMob";
+	public static final String VERSION = "0.0.0";
 
 	@Mod.EventHandler
-	public void init(FMLInitializationEvent event) {
-
+	public void init(FMLInitializationEvent event)
+	{
 		/*
 		 * Entityを登録するメソッド
 		 * 引数は(Entityのクラス, 名前, このMod内で重複しない整数, modのインスタンス, 更新範囲, 更新頻度, 更新に加速度を含むかどうか)
@@ -42,7 +36,8 @@ public class SampleEntityMobCore {
 		 * Client側のみ, RendererとEntityを関連付ける.
 		 * if文でやってもいいし, proxyなどを挟んでもよい.
 		 */
-		if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+		if(FMLCommonHandler.instance().getSide() == Side.CLIENT)
+		{
 			RenderingRegistry.registerEntityRenderingHandler(EntityMeleeSkeleton.class, new RenderMeleeSkeleton());
 		}
 
@@ -50,6 +45,6 @@ public class SampleEntityMobCore {
 		 * Entityに名前を付けるときのメソッド.
 		 * 基本的に"entity.[registerModEntityで付けた文字列]"になる.
 		 */
-		LanguageRegistry.instance().addStringLocalization("entity.MeleeSkeleton", "Melee Skeleton");
+		// LanguageRegistry.instance().addStringLocalization("entity.MeleeSkeleton", "Melee Skeleton");
 	}
 }

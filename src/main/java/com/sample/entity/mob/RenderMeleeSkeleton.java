@@ -7,14 +7,15 @@ import net.minecraft.util.ResourceLocation;
 /*
  * 今回は二本足のEntityを追加するので, RenderBipedを継承する.
  */
-public class RenderMeleeSkeleton extends RenderBiped {
-
+public class RenderMeleeSkeleton extends RenderBiped
+{
 	/*
 	 * テクスチャへのResourceLocationを設定する.
 	 */
 	private static final ResourceLocation skeletonTextures = new ResourceLocation("entity:textures/mob/red_skeleton.png");
 
-	public RenderMeleeSkeleton() {
+	public RenderMeleeSkeleton()
+	{
 		/*
 		 * スーパークラスのコンストラクタの引数は
 		 * (このRenderと紐付けするModel, このRenderを使うEntityの足元の影の大きさ)
@@ -26,9 +27,8 @@ public class RenderMeleeSkeleton extends RenderBiped {
 	 * このRenderが利用するテクスチャのResourceLocationを返す.
 	 */
 	@Override
-	protected ResourceLocation func_110856_a(EntityLiving par1EntityLiving)
+	protected ResourceLocation getEntityTexture(EntityLiving par1EntityLiving)
 	{
 		return this.skeletonTextures;
 	}
-
 }

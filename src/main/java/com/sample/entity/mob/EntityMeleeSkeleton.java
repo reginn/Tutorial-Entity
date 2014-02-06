@@ -1,5 +1,6 @@
 package com.sample.entity.mob;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -10,12 +11,14 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class EntityMeleeSkeleton extends EntityMob {
-
-	public EntityMeleeSkeleton(World world) {
+public class EntityMeleeSkeleton extends EntityMob
+{
+	public EntityMeleeSkeleton(World world)
+	{
 		super(world);
 
 		/*
@@ -64,7 +67,8 @@ public class EntityMeleeSkeleton extends EntityMob {
 	 * 今回は使うのでtrueを返している.
 	 */
 	@Override
-	public boolean isAIEnabled() {
+	public boolean isAIEnabled()
+	{
 		return true;
 	}
 
@@ -73,16 +77,18 @@ public class EntityMeleeSkeleton extends EntityMob {
 	 * 今回は移動速度を変更.
 	 */
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.25D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25D);
 	}
 
 	/*
 	 * このMobが生きてるときの音のファイルパスを返す.
 	 */
 	@Override
-	protected String getLivingSound() {
+	protected String getLivingSound()
+	{
 		return "mob.skeleton.say";
 	}
 
@@ -90,7 +96,8 @@ public class EntityMeleeSkeleton extends EntityMob {
 	 * このMobがダメージを受けたときの音のファイルパスを返す.
 	 */
 	@Override
-	protected String getHurtSound() {
+	protected String getHurtSound()
+	{
 		return "mob.skeleton.hurt";
 	}
 
@@ -98,16 +105,18 @@ public class EntityMeleeSkeleton extends EntityMob {
 	 * このMobが倒されたときの音のファイルパスを返す.
 	 */
 	@Override
-	protected String getDeathSound() {
+	protected String getDeathSound()
+	{
 		return "mob.skeleton.death";
 	}
 
 	/*
 	 * このMobが動いているときの音のファイルパスを返す.
-	 * 引数のblockIDはMobの下にあるBlockのID.
+	 * 引数のblockはMobの下にあるBlock.
 	 */
 	@Override
-	protected void playStepSound(int x, int y, int z, int blockID) {
+	protected void func_145780_a(int x, int y, int z, Block block)
+	{
 		this.playSound("mob.skeleton.step", 0.15F, 1.0F);
 	}
 
@@ -116,16 +125,18 @@ public class EntityMeleeSkeleton extends EntityMob {
 	 * 今回はUNDEADにしているので, エンチャントのSmiteが有効.
 	 */
 	@Override
-	public EnumCreatureAttribute getCreatureAttribute() {
+	public EnumCreatureAttribute getCreatureAttribute()
+	{
 		return EnumCreatureAttribute.UNDEAD;
 	}
 
 	/*
-	 * このMobの通常ドロップのアイテムIDを返すメソッド.
+	 * このMobの通常ドロップのアイテムを返すメソッド.
 	 */
 	@Override
-	protected int getDropItemId() {
-		return Item.bone.itemID;
+	protected Item getDropItem()
+	{
+		return Items.bone;
 	}
 
 }

@@ -6,13 +6,15 @@ import net.minecraft.client.model.ModelRenderer;
 /*
  * 二本足のEntityを追加するので, ModelBipedを継承する.
  */
-public class ModelMeleeSkeleton extends ModelBiped {
-
-	public ModelMeleeSkeleton() {
+public class ModelMeleeSkeleton extends ModelBiped
+{
+	public ModelMeleeSkeleton()
+	{
 		this(0.0F);
 	}
 
-	public ModelMeleeSkeleton(float scaleFactor) {
+	public ModelMeleeSkeleton(float scaleFactor)
+	{
 		/*
 		 * スーパークラスのコンストラクタの引数は
 		 * (scale, yOffset, テクスチャのwidht, テクスチャのheight)
