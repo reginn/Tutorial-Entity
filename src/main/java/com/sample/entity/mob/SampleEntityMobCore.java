@@ -40,11 +40,5 @@ public class SampleEntityMobCore
 		{
 			RenderingRegistry.registerEntityRenderingHandler(EntityMeleeSkeleton.class, new RenderMeleeSkeleton());
 		}
-
-		/*
-		 * Entityに名前を付けるときのメソッド.
-		 * 基本的に"entity.[registerModEntityで付けた文字列]"になる.
-		 */
-		// LanguageRegistry.instance().addStringLocalization("entity.MeleeSkeleton", "Melee Skeleton");
 	}
 }
